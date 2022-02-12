@@ -1,0 +1,151 @@
+<div align="center">
+    <h4> ************Data Binding Start************</h4>
+    <h1>{{title}}</h1>
+    <h5>Fullname= {{name.firstName}} {{name.lastName}}</h5>
+    
+    <p [innerHTML]="title"></p>
+    
+    <button (click)="showData();">Click Me!</button>
+
+    <input type="text" [(ngModel)]="demotext"/>
+    {{demotext}}
+
+    <h4> ************Data Binding End************</h4>
+
+   <h4> ************ Directives Start************</h4>
+   <button [disabled]="isDisabled"> Property Binding </button> 
+   <button [hidden]="isButtonVisible"> Hide Button </button> 
+
+
+    
+
+
+
+     <div *ngIf="className"> Class Name is True </div>
+
+     <table class="table table-bordered table-responsive">
+       
+     <!--<table [hidden]="contactList" class="table table-bordered table-responsive">-->
+        <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+        </tr> 
+        <tr *ngFor="let c of contactList">
+         <td>{{c.name}}</td>
+         <td>{{c.email}}</td>
+         <td>{{c.phone}}</td>
+        </tr> 
+     </table>
+
+
+   <h4> ************ Directives End ************</h4>
+
+   <h4> ************ Custom Directive Start ***********</h4>
+   <h1 appDemoDirective>Welcome to NextAlign</h1>
+   <h4> ************ Custom Directive End ***********</h4>
+
+   <h4> ************ ngStyle ***********</h4>
+   <h1 [ngStyle]="cssStyle">NextAlign</h1>
+   <h4> ************ ngStyle ***********</h4>
+   <h4> ************ ngStyle with Conditional stmt ***********</h4>
+   <div *ngFor="let stud of students">
+    <span><h1 [ngStyle]="{'color': stud.gender=='Male'?'green':'red' }" [ngClass]="{'backgroundColor': stud.gender=='Female'}">Name: {{stud.name}} Gender:  {{stud.gender}}</h1> </span>
+  </div>
+  <h4> ************ ngStyle with Conditional stmt ***********</h4>
+  <h4> ************ ngStyle with object ***********</h4>
+  <div *ngFor="let stud of students">
+   <span><h1 [ngStyle]="{'color': getColor(stud.gender)}">Name: {{stud.name}} Gender:  {{stud.gender}}</h1> </span>
+ </div>
+ <h4> ************ ngStyle with object ***********</h4>
+
+ <h4> ************ ngClass ***********</h4>
+ <h1 class="boldClass colorClass backgroundColor">ngClass Example</h1>
+ <h1 [ngClass]="'boldClass colorClass backgroundColor'">ngClass with binding Example</h1>
+ <h1 [ngClass]="['boldClass', 'colorClass', 'backgroundColor']">ngClass with Array Example</h1>
+ <h1 [ngClass]="{'boldClass': isBold, 'colorClass': true}">ngClass with object Example</h1>
+ <h4> ************ ngClass ***********</h4>
+
+ <h4>***********ngSwitch***********</h4>
+
+ <button (click)="selectCountry('I')">India</button>
+ <button (click)="selectCountry('A')">Australia</button>
+ <button (click)="selectCountry('U')">USA</button>
+ <button (click)="selectCountry('UK')">UK</button>
+
+ <div [ngSwitch]="selectCountryCode">
+   <h3 *ngSwitchCase="'I'">India Selected</h3>
+   <h3 *ngSwitchCase="'A'">Australia Selected</h3>
+   <h3 *ngSwitchCase="'U'">USA Selected</h3>
+   <h3 *ngSwitchCase="'UK'">UK Selected</h3> 
+   <h3 *ngSwitchDefault="">No country Selected</h3> 
+ </div>
+ {{selectCountryCode}}
+
+ <h4>***********ngSwitch***********</h4>
+ <hr/>
+ <h4>***********Pipes***********</h4>
+ 
+ <h5>Name: {{firstName | titlecase}}</h5>
+ <h5>Salary: {{salary | currency : 'INR'}}</h5>
+ <h5>Date: {{TodayDate  | date }} <br/>
+   FullDate: {{TodayDate | date : 'fullDate'}}<br/>
+   ShortDate: {{TodayDate | date : 'short'}}<br/>
+  FormateDate: {{TodayDate | date : 'dd/mm/YY'}} 
+ </h5>
+
+ <table class="table table-bordered">
+   <tr>
+    <th> ID </th>
+    <th> Name </th>
+    <th> DOB </th>
+    <th> Gender </th>
+    <th> CourseFee</th>
+   </tr>
+   <tr *ngFor="let std of studentsData">
+     <td>{{std.ID}}</td>
+     <td>{{std.Name | titlecase | nameTitle:std.Gender}}</td>
+     <td>{{std.DOB | date}}</td>
+     <td>{{std.Gender | uppercase | genderTitleModify}}</td>
+     <td>{{std.CourseFee | currency:'INR':true}}</td>
+   </tr>
+ </table>
+
+
+ <h4>***********Pipes***********</h4>
+ <hr/>
+
+    <form action="/action_page.php" method="post">
+  <div class="imgcontainer">
+    <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+        
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form> 
+
+<input type="text" [(ngModel)]="twowaytext"/>
+    {{twowaytext}}
+
+
+    <br/><br/> <br/><br/> <br/><br/> <br/><br/>
+
+
+</div>
+
+

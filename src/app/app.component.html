@@ -1,0 +1,18 @@
+<app-header></app-header>
+<app-body></app-body>
+
+
+<app-practice [greet]="greetings"></app-practice>
+
+<app-practice></app-practice>
+<app-child  (parentFunction)="parentFunction($event)"></app-child>
+<!--<app-footer></app-footer>-->
+
+<h2>********API Data**********</h2>
+<table>
+    <tr *ngFor="let d of displayData">
+      <td>{{d.id}}</td>
+      <td>{{d.body}}</td>
+      <td>{{d.title}}</td>
+    </tr>
+</table>
